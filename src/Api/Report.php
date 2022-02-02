@@ -47,4 +47,16 @@ class Report extends AbstractApi implements ReportInterface
 
         return $result['results'];
     }
+
+    /**
+     * Retrieves a list of items with automatic pagination.
+     *
+     * @param array $parameters Optional. Parameters for filtering the list of items. Default empty array.
+     *
+     * @return \Required\Harvest\Api\AutoPagingIterator the iterator
+     */
+    public function projectBudgetWithAutoPagingIterator(array $parameters = []): AutoPagingIterator
+    {
+        return new AutoPagingIterator($this, $parameters, 'projectBudget');
+    }
 }
