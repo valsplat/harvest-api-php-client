@@ -73,7 +73,7 @@ class AutoPagingIterator implements Iterator
     /**
      * Moves forward to next element.
      */
-    public function next()
+    public function next(): void
     {
         $item = next($this->data);
 
@@ -99,7 +99,7 @@ class AutoPagingIterator implements Iterator
      *
      * @return bool returns true on success or false on failure
      */
-    public function valid()
+    public function valid(): bool
     {
         $key = key($this->data);
 
@@ -109,7 +109,7 @@ class AutoPagingIterator implements Iterator
     /**
      * Rewind the Iterator to the first element.
      */
-    public function rewind()
+    public function rewind(): void
     {
         $this->apiInterface->resetPagination();
         $this->data = $this->apiInterface->{$this->method}($this->parameters);
